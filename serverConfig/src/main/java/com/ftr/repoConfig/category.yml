@@ -1,6 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/categoryDb
-    username: postgres
-    password: marcus29
-    driver-class-name: org.postgresql.Driver
