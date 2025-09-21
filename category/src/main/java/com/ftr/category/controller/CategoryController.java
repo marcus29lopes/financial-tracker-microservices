@@ -1,10 +1,13 @@
 package com.ftr.category.controller;
 
+import com.ftr.category.DTO.CategoryDTO;
 import com.ftr.category.response.CategoryResponse;
 import com.ftr.category.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,4 +25,12 @@ public class CategoryController {
     public List<CategoryResponse> getAllCategories() {
         return categoryService.getAllCategories();
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/category")
+    public CategoryResponse addCategory(@RequestBody CategoryDTO categoryDTO) {
+        return categoryService.addCategory(categoryDTO);
+    }
+
+
 }

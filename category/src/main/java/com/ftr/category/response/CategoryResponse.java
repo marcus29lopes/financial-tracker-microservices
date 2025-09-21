@@ -7,7 +7,7 @@ import lombok.Data;
 public class CategoryResponse {
 
     public CategoryResponse(Category category) {
-        this.categoryName = category.getName();
+        this.name = category.getName();
     }
-    private String categoryName;
+    private String name;
 }
