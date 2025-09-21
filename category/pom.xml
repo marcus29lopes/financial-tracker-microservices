@@ -11,7 +11,6 @@
 	<groupId>com.ftr</groupId>
 	<artifactId>category</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>category</name>
 	<description>Microservice for managing categories in Financial Tracker</description>
 	<url/>
 	<licenses>
