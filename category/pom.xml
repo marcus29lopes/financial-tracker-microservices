@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ftr</groupId>
-	<artifactId>Category Service</artifactId>
+	<artifactId>category</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>category</name>
 	<description>Microservice for managing categories in Financial Tracker</description>
