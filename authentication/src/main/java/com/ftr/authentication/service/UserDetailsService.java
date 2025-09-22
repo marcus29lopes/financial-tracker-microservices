@@ -1,6 +1,6 @@
 package com.ftr.authentication.service;
 
-import com.ftr.authentication.model.User;
+import com.ftr.authentication.model.Users;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -16,9 +16,9 @@ public class UserDetailsService implements org.springframework.security.core.use
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userService.findByEmail(email)
+        Users users = userService.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return new UserDetailsImpl(user);
+        return new UserDetailsImpl(users);
     }
 
 }

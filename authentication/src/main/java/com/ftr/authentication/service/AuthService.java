@@ -3,7 +3,7 @@ package com.ftr.authentication.service;
 import com.ftr.authentication.DTO.UserLoginDTO;
 import com.ftr.authentication.DTO.UserRegisterDTO;
 import com.ftr.authentication.enums.Role;
-import com.ftr.authentication.model.User;
+import com.ftr.authentication.model.Users;
 import com.ftr.authentication.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,12 +34,12 @@ public class AuthService {
             throw new RuntimeException("User with email already exists");
         }
 
-        User user = new User();
-        user.setName(userRegisterDTO.getName());
-        user.setRole(Role.ROLE_USER);
-        user.setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
-        user.setEmail(userRegisterDTO.getEmail());
-        userService.saveUser(user);
+        Users users = new Users();
+        users.setName(userRegisterDTO.getName());
+        users.setRole(Role.ROLE_USER);
+        users.setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
+        users.setEmail(userRegisterDTO.getEmail());
+        userService.saveUser(users);
     }
 
     public String loginUser(UserLoginDTO userLoginDTO) {
@@ -48,8 +48,6 @@ public class AuthService {
         );
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         String role = userDetails.getAuthorities().iterator().next().getAuthority();
-        //----------------------------------
-        System.out.println("role: " + role);
 
         return jwtUtil.generateToken(userDetails.getUsername(), role);
 

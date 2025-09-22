@@ -1,6 +1,6 @@
 package com.ftr.authentication.service;
 
-import com.ftr.authentication.model.User;
+import com.ftr.authentication.model.Users;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,25 +10,25 @@ import java.util.List;
 
 public class UserDetailsImpl implements UserDetails {
 
-    private final User user;
+    private final Users users;
 
-    public UserDetailsImpl(User user) {
-        this.user = user;
+    public UserDetailsImpl(Users users) {
+        this.users = users;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(user.getRole().toString()));
+        return List.of(new SimpleGrantedAuthority(users.getRole().toString()));
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return users.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return users.getEmail();
     }
 
     @Override

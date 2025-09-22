@@ -1,6 +1,6 @@
 package com.ftr.authentication.service;
 
-import com.ftr.authentication.model.User;
+import com.ftr.authentication.model.Users;
 import com.ftr.authentication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ public class UserService {
        return userRepository.existsByEmail(email);
     }
 
-    public void saveUser(User user) {
-        userRepository.save(user);
+    public void saveUser(Users users) {
+        userRepository.save(users);
     }
 
-    public Optional<User> findByEmail(String email) {
+    public Optional<Users> findByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
 }
