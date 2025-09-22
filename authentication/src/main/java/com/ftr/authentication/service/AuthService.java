@@ -30,7 +30,7 @@ public class AuthService {
 
     public void registerUser(UserRegisterDTO userRegisterDTO) {
 
-        if(userService.findUserByEmail(userRegisterDTO.getEmail())){
+        if (userService.findUserByEmail(userRegisterDTO.getEmail())) {
             throw new RuntimeException("User with email already exists");
         }
 
@@ -43,7 +43,7 @@ public class AuthService {
     }
 
     public TokenResponse loginUser(UserLoginDTO userLoginDTO) {
-       Authentication auth = authenticationManager.authenticate(
+        Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userLoginDTO.getEmail(), userLoginDTO.getPassword())
         );
         UserDetailsImpl userDetails = (UserDetailsImpl) auth.getPrincipal();
@@ -51,11 +51,7 @@ public class AuthService {
         //----------------------------------
         System.out.println("role: " + role);
 
-//
-
-
-
-
+        return null;
 
 
     }
