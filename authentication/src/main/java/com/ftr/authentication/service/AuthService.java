@@ -4,12 +4,12 @@ import com.ftr.authentication.DTO.UserLoginDTO;
 import com.ftr.authentication.DTO.UserRegisterDTO;
 import com.ftr.authentication.enums.Role;
 import com.ftr.authentication.model.User;
-import com.ftr.authentication.response.TokenResponse;
 import com.ftr.authentication.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -42,16 +42,16 @@ public class AuthService {
         userService.saveUser(user);
     }
 
-    public TokenResponse loginUser(UserLoginDTO userLoginDTO) {
+    public String loginUser(UserLoginDTO userLoginDTO) {
         Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userLoginDTO.getEmail(), userLoginDTO.getPassword())
         );
-        UserDetailsImpl userDetails = (UserDetailsImpl) auth.getPrincipal();
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
         String role = userDetails.getAuthorities().iterator().next().getAuthority();
         //----------------------------------
         System.out.println("role: " + role);
 
-        return null;
+        return jwtUtil.generateToken(userDetails.getUsername(), role);
 
 
     }

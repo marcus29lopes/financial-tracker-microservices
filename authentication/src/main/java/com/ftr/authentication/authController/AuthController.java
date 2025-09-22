@@ -2,7 +2,6 @@ package com.ftr.authentication.authController;
 
 import com.ftr.authentication.DTO.UserLoginDTO;
 import com.ftr.authentication.DTO.UserRegisterDTO;
-import com.ftr.authentication.response.TokenResponse;
 import com.ftr.authentication.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +27,7 @@ public class AuthController {
 
     @PostMapping(value = "/login")
     @ResponseStatus(HttpStatus.OK)
-    public TokenResponse login(@RequestBody UserLoginDTO userLoginDTO) {
+    public String login(@RequestBody UserLoginDTO userLoginDTO) {
         return authService.loginUser(userLoginDTO);
     }
 

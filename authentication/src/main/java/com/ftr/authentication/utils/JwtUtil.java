@@ -21,12 +21,12 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
-    public String generateToken(String email, Role role) {
+    public String generateToken(String email, String role) {
         // 1 dia
         long jwtExpirationMs = 86400000;
         return Jwts.builder()
                 .setSubject(email)
-                .claim("role", role.name())
+                .claim("role", role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + jwtExpirationMs))
                 .signWith(key, SignatureAlgorithm.HS512)
