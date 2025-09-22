@@ -12,10 +12,10 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(nativeQuery = true,
-            value = "SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false END FROM user u WHERE u.email = :email")
+            value = "SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false END FROM  users u WHERE u.email = :email")
     Boolean existsByEmail(@Param("email") String email);
 
     @Query(nativeQuery = true,
-            value = "SELECT * FROM user WHERE email = :email")
+            value = "SELECT * FROM users WHERE email = :email")
     Optional<User> findUserByEmail(@Param("email") String email);
 }
