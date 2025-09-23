@@ -7,7 +7,8 @@ CREATE TABLE transactions (
     type_id VARCHAR,
     type_name VARCHAR,
     value NUMERIC(15,2) NOT NULL,
-    created_at TIMESTAMP,
+    receipt_url TEXT,
+    created_at TIMESTAMP DEFAULT NOW(),
     description TEXT
 
 
