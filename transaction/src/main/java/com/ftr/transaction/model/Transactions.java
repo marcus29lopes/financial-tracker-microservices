@@ -51,8 +51,4 @@ public class Transactions {
     private String description;
 
 
-
-
-
-
 }
