@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka" />
+        <module name="gateway" />
         <module name="repoConfig" />
       </profile>
       <profile name="Annotation profile for transaction" enabled="true">
@@ -32,6 +33,7 @@
       <module name="authentication" options="-parameters" />
       <module name="category" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="repoConfig" options="-parameters" />
       <module name="transaction" options="-parameters" />
     </option>
