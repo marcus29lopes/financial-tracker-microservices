@@ -1,4 +1,4 @@
-package com.ftr.authentication.authController;
+package com.ftr.authentication.controller;
 
 import com.ftr.authentication.DTO.UserLoginDTO;
 import com.ftr.authentication.DTO.UserRegisterDTO;
