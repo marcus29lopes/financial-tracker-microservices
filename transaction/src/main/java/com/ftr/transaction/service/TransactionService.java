@@ -16,7 +16,8 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
 
     @Transactional
-    public void saveTransaction(TransactionDTO transactionDTO) {
+    public TransactionResponse saveTransaction(TransactionDTO transactionDTO) {
+
     }
 
     public List<TransactionResponse> listAllTransactions() {
